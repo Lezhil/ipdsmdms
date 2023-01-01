@@ -1,0 +1,158 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+	http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+	<!-- xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0"> -->
+
+	<!-- RESOURCE_LOCAL - -->
+
+	<!-- <persistence-unit name="mdm" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>		
+			<class>com.bcits.entity.User</class>
+			 <class>com.bcits.entity.UserAccessType</class>			
+			<class>com.bcits.entity.MeterMaster</class>	
+			<class>com.bcits.entity.CDFData</class>
+			<class>com.bcits.entity.D1_data</class>
+			<class>com.bcits.entity.D2Data</class>
+			<class>com.bcits.entity.D3Data</class>
+			<class>com.bcits.entity.D4CdfData</class>
+			<class>com.bcits.entity.D4Data</class>
+			<class>com.bcits.entity.D5Data</class>
+			<class>com.bcits.entity.D5_Snapshot</class>
+			<class>com.bcits.entity.D9Data</class>
+			<class>com.bcits.entity.EventMaster</class>
+			<class>com.bcits.entity.TransactionMaster</class>
+			<class>com.bcits.entity.XmlImport</class>	
+			<class>com.bcits.entity.CmriNumber</class>	
+			<class>com.bcits.entity.ReadingRemark</class>
+			<class>com.bcits.entity.Master</class>
+			<class>com.bcits.entity.Mrname</class>
+			<class>com.bcits.entity.PfAngle</class>
+			<class>com.bcits.entity.SdoJcc</class>
+			<class>com.bcits.entity.Seal</class>
+			<class>com.bcits.entity.CMRIEntity</class>
+			<class>com.bcits.entity.ChangesEntity</class>	
+			<class>com.bcits.entity.Assesment</class>	
+			<class>com.bcits.entity.RdngMonth</class>		
+			<class>com.bcits.entity.RunningApkVersionEntity</class>
+			<class>com.bcits.entity.MobileBillingDataEntity</class>	
+			<class>com.bcits.entity.SBMDetailsEntity</class>	
+		    <class>com.bcits.entity.MeterReaderDetailsEntity</class>
+		    <class>com.bcits.entity.ConsumerOutputLiveMIPEntity</class>	
+		    <class>com.bcits.entity.VersionApkEntity</class>
+		   
+		    <class>com.bcits.entity.NOMRDEntity</class>	
+		    <class>com.bcits.entity.AmrMeterData</class>	
+		    <class>com.bcits.entity.MobileGenStatusEntity</class>	
+
+			<class>com.bcits.entity.BatchStatusEntity</class>
+
+			<class>com.bcits.entity.MeterMasterExtra</class>
+			<class>com.bcits.entity.JvvnlUsersEntity</class>	
+			<class>com.bcits.entity.TamperEntity</class>
+			<class>com.bcits.entity.ExceptionManagementEntity</class>
+				<class>com.bcits.entity.TamperEntity</class>
+			<class>com.bcits.entity.EmailGateway</class>
+			<class>com.bcits.entity.SmsGateway</class>
+			<class>com.bcits.entity.MessagingSettings</class>
+			
+	<properties>
+		<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+		<property name="hibernate.hbm2ddl.auto" value="auto" />
+		<property name="hibernate.show_sql" value="true" />
+		<property name="hibernate.jdbc.use_get_generated_keys" value="true" />
+		<property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />
+	</properties>
+	</persistence-unit>  -->
+	
+	<!-- JTA - -->
+	
+	<!-- <persistence-unit name="bsmartSpringApp" transaction-type="JTA">
+    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+    	<jta-data-source>java:jboss/datasources/BsmartDS</jta-data-source>
+    
+	 	<class>com.bcits.entity.User</class>
+  
+    	<properties>
+	      	<property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup"/>
+	    	<property name="jboss.entity.manager.factory.jndi.name" value="java:/bsmartSpringApp"/>
+	    	<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>	
+	      	<property name="hibernate.hbm2ddl.auto" value="none"/>
+    	</properties>
+  </persistence-unit> -->
+	<persistence-unit name="POSTGREDataSource" transaction-type="RESOURCE_LOCAL">
+				<provider>org.hibernate.ejb.HibernatePersistence</provider>
+				<!-- <class>com.bcits.mdas.entity.SiteLocationEntity</class>
+				<class>com.bcits.mdas.entity.MRDeviceAllocationEntity</class>
+				<class>com.bcits.mdas.entity.MRDeviceEntity</class>
+				<class>com.bcits.mdas.entity.User</class>
+				<class>com.bcits.mdas.entity.UserDetails</class>-->
+				<class>com.bcits.mdas.entity.AmrInstantaneousEntity</class> 
+				<class>com.bcits.mdas.entity.AmrEventsEntity</class>
+				<class>com.bcits.mdas.entity.AmrLoadEntity</class>
+				<class>com.bcits.mdas.entity.AmrBillsEntity</class>
+				<class>com.bcits.mdas.entity.FeederMasterEntity</class>
+				<class>com.bcits.mdas.entity.ModemCommunication</class>
+				<class>com.bcits.mdas.entity.XmlUploadStatusEntity</class>
+				<class>com.bcits.mdas.entity.FeederOutputEntity</class>
+				<class>com.bcits.mdas.entity.ModemDiagnosisEntity</class>
+				<class>com.bcits.mdas.entity.ModemMasterEntity</class>
+				<class>com.bcits.mdas.entity.ModemInstallationEntity</class>
+				<class>com.bcits.mdas.entity.MasterMainEntity</class>
+				<class>com.bcits.mdas.entity.ModemTransactionEntity</class>
+				<class>com.bcits.mdas.entity.ChangeModemDetailsEntity</class>
+				<class>com.bcits.mdas.entity.ModemMasterEntity</class>
+				<class>com.bcits.mdas.entity.NewConsumersEntity</class>
+				<class>com.bcits.mdas.entity.MeterChange</class>
+				<class>com.bcits.entity.AuditTrailEntity</class>
+				<class>com.bcits.entity.ConsumerMasterEntity</class>
+				
+				<class>com.bcits.mdas.entity.PrepaidMaster</class>
+				<class>com.bcits.mdas.entity.PrepaidReadings</class>
+				<class>com.bcits.mdas.entity.PrepaidPayments</class>
+				<class>com.bcits.entity.DtDetailsEntity</class>
+				<class>com.bcits.entity.MeterInventoryEntity</class>
+				<class>com.bcits.mdas.entity.EstimationRuleEntity</class>
+				<class>com.bcits.mdas.entity.VeeRuleEntity</class>
+				<class>com.bcits.mdas.entity.AssignValidationRuleEntity</class>
+				<class>com.bcits.mdas.entity.AssignsEstimationRuleEntity</class>
+				<class>com.bcits.mdas.entity.ValidationProcessReportEntity</class>
+				<class>com.bcits.entity.AlarmHistory</class>
+				<class>com.bcits.entity.Alarms</class>
+				<class>com.bcits.mdas.entity.EstimationProcessRptEntity</class>
+				<class>com.bcits.mdas.entity.BoundaryMetersEntity</class>
+				<class>com.bcits.entity.MeterChangeTransHistory</class>
+				<class>com.bcits.mdas.entity.NppDTrptMonthlyCalculation</class>
+				<class>com.bcits.entity.PfcD2IntermediateEntity</class>
+				<class>com.bcits.entity.PfcD7IntermediateEntity</class>
+				<class>com.bcits.entity.IndFeederMasEntity</class>
+				<class>com.bcits.entity.IndssMassEntity</class>
+				<class>com.bcits.entity.IndstrChangeEntity</class>
+				<class>com.bcits.entity.IndstrDeleteEntity</class>
+				<class>com.bcits.entity.IndStructureMasEntity</class>
+
+				<class>com.bcits.entity.PowerFactorAnalysisEntity</class>
+				<class>com.bcits.entity.FeederHealthEntity</class>
+				
+				<class>com.bcits.mdas.entity.InitialMeterInfo</class>
+				<class>com.bcits.entity.LegacyTrackerEntity</class>
+				
+				<class>com.bcits.entity.TownEntity</class>
+				<class>com.bcits.entity.NppDtReportIntermediate</class>
+				<class>com.bcits.entity.PfcFOCD3IntermediateEntity</class>
+				<class>com.bcits.entity.DtDetailsHistoryEntity</class>
+
+				
+				
+				
+     <!-- org.hibernate.dialect.PostgreSQLDialect -->
+    <!-- org.hibernate.dialect.Oracle10gDialect -->
+<properties>
+<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+<property name="hibernate.hbm2ddl.auto" value="false" />
+<property name="hibernate.show_sql" value="false" />
+
+</properties>
+</persistence-unit> 
+</persistence>

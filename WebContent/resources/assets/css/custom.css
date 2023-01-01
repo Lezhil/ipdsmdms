@@ -1,0 +1,220 @@
+/* here you can put your own css to customize and override the theme */
+body{
+    background-image: linear-gradient(to right, #6c8a9b , #09203f )!important;
+}
+.landingPage{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff url(../img/technology-background-images-1.jpg) no-repeat top left;
+    background-size: cover;
+}
+.header{
+    background-image: linear-gradient(to right, #6c8a9b , #09203f )!important;
+}
+.header .navbar-brand img{
+    margin: auto;
+    height: 62px;
+}
+
+.navbar-inverse .navbar-nav.userInfo > li a {
+    padding: 6px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.userInfo img{
+    border-radius: 50%!important;
+    margin-right: 5px;
+}
+.navbar-inverse .navbar-nav.userInfo > li a .fa-power-off{
+    color: #ffb848;
+    line-height: 26px;
+    text-shadow: 0 0 10px #fff;
+    transition: all 0.3s ease-in-out;
+}
+.navbar-inverse .navbar-nav.userInfo > li a .fa-power-off:hover{
+    color: #ff2f00;
+    line-height: 26px;
+    text-shadow: 0 0 10px #ed4e2a;
+}
+.navbar-brand{
+    /* padding: 2px 15px; */
+    background: #eeeeee;
+}
+.navbar-inverse .navbar-brand:hover{
+    background: #f2f2f2;
+}
+.page-sidebar-menu{
+    margin-top: 50px;
+}
+ul.page-sidebar-menu > li.open > a, ul.page-sidebar-menu > li > a:hover, ul.page-sidebar-menu > li:hover > a{
+    background: #0a2140 !important;
+}
+ul.page-sidebar-menu > li.active > a{
+    background: #0a2140 !important;
+}
+ul.page-sidebar-menu > li a i {
+    color: #0a2140;
+}
+
+ul.page-sidebar-menu > li.open a i{
+    color: #27a9e3;
+}
+ul.page-sidebar-menu > li:hover a i,ul.page-sidebar-menu > li.active > a i {
+    color: #27a9e3;
+}
+ul.page-sidebar-menu > li > a .arrow:before, ul.page-sidebar-menu > li > a .arrow.open:before {
+    color: #eeeeee !important;
+}
+
+ul.page-sidebar-menu > li > a{
+    border-top: 1px dashed rgba(0, 0, 0, 0.4) !important;
+}
+.page-sidebar-menu > li > ul.sub-menu{
+    margin: 0px 0px 0px 0px;
+    background: rgba(10, 33, 64, 0.6);
+    padding: 8px 0;
+}
+a.companyName{
+    text-align: center;
+    padding: 10px;
+    padding-left: 50px;
+    display: inline-block;
+    color: #eee;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;
+    position: relative;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5)!important;
+}
+a.companyName img {
+    width: 44px;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+}
+a.companyName:hover{
+    text-decoration: none;
+}
+.page-sidebar{
+    background-color:transparent;
+}
+.landingPage .row{
+    display: flex;
+    justify-content: center;
+}
+.loginContainer{
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow:  0 0 50px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+.loginContainer .loginForm{
+    padding: 20px 5%;
+    background-image: linear-gradient(-45deg, #36d1dc , #5b86e5);
+}
+.loginContainer .loginForm h2{
+    margin: 0 0 20px;
+    color: #fff;
+}
+.loginContainer .loginForm .input-group{
+    margin: 8px 0;
+    width: 100%;
+    text-transform: uppercase;
+}
+.loginForm .form-control{
+    background: rgba(8, 8, 8, 0.2);
+    color: #fff;
+    border: none;
+}
+.loginForm .form-control::placeholder{
+    color: rgba(255, 255, 255, 0.7);
+}
+.loginForm .input-group .input-group-btn .btn-default{
+    border: 1px solid rgba(255, 255, 255, 0.0);
+    background: rgba(255, 255, 255, 0.3);
+    color: #386c9e;
+}
+.loginForm .input-group-addon {
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+}
+.loginForm .input-group-addon i{
+    color: rgba(255, 255, 255, 0.8);
+}
+.loginContainer .loginForm .btn-primary{
+    background-image: linear-gradient(90deg, #dd5e89, #f7bb97);
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+.loginContainer .loginForm .btn-primary:hover{
+    background:  #dd5e89;
+}
+.loginContainer .loginForm .bSmart{
+    margin-top: 20px;
+    background: #fff;
+    padding: 3px 20px;
+    position: relative;
+    right: -59%;
+    border-radius: 30px 3px 3px 30px!important;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    display: inline-table;
+}
+.loginSide{
+    background: url(../img/HexingMeteringSolution-edited.jpg) no-repeat center;
+    background-size: contain;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginSide h1{
+    color: #fff;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.60);
+}
+.landingPage .branding{
+    position: relative;
+    /* padding: 20px 0 20px; */
+    text-align: center
+}
+.landingPage .branding img{
+    width: 65px;
+    border-radius: 10px!important;
+}
+.landingPage .branding h1{
+    margin: 10px 0 20px;
+}
+.page-sidebar-menu > li > ul.sub-menu > li > a{
+    padding-left: 15px !important;
+}
+ul.page-sidebar-menu li > ul.sub-menu > li > a{
+    color: rgba(255, 255, 255, 0.8);
+}
+.page-sidebar-menu > li > ul.sub-menu > li > ul.sub-menu > li > a {
+    padding-left: 30px;
+    font-size: 12px;
+}
+ul.page-sidebar-menu > li a i {
+    color:  rgba(255, 255, 255, 0.6);
+}
+.copyR{
+    text-align: center;
+    background: rgba(255, 255, 255, 0.7);
+    display: table;
+    margin: 20px auto 0;
+    padding: 2px 20px;
+    border-radius: 10px!important;
+}
+@media only screen and (max-width: 991px) {
+    .landingPage .row {
+        display: block;
+    }
+    .loginSide{
+        height: 68vw;
+    }
+  }
+  

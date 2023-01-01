@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><CrystalReportEngine-configuration>
+        <reportlocation>../..</reportlocation>
+    <timeout>10</timeout>
+    
+    <ExternalFunctionLibraryClassNames> 
+		<classname> </classname>
+		<classname> </classname>
+    </ExternalFunctionLibraryClassNames>
+    
+<keycode>B6W64-01CS200-000HW7N-T6E1</keycode>
+
+</CrystalReportEngine-configuration>

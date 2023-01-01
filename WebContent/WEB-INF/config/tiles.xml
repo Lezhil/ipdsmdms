@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    <definition name="base.definition" template="/WEB-INF/jsps/mainTemplate.jsp">
+        <!-- <put-attribute name="title" value=""></put-attribute> -->
+        <put-attribute name="header" value="/WEB-INF/jsps/pageheader.jsp"></put-attribute> 
+       <!--  <put-attribute name="header2" value="/WEB-INF/jsps/pageheader.jsp"></put-attribute> -->
+        <put-attribute name="menu" value="/WEB-INF/jsps/pagesidebar.jsp"></put-attribute>
+        <put-attribute name="body" value=""></put-attribute>
+        <!-- <put-attribute name="topMenu" value="/WEB-INF/jsps/pageheader.jsp"></put-attribute> -->
+     <put-attribute name="footer" value="/WEB-INF/jsps/pagefooter.jsp"></put-attribute> 
+    </definition>
+    
+    <definition name="base.login" template="/WEB-INF/jsps/loginTemplate.jsp">
+    	<!-- <put-attribute name="title" value=""></put-attribute> -->
+    	<put-attribute name="body" value=""></put-attribute>
+    </definition>
+ 	
+ 	 <definition name="checkComm" extends="base.login">
+        <!-- <put-attribute name="title" value="BSmartMDM"></put-attribute> -->
+        <put-attribute name="body" value="/WEB-INF/jsps/checkMtrModemCommMDAS.jsp"></put-attribute>
+    </definition>
+ 
+ 
+   <definition name="login" extends="base.login">
+        <!-- <put-attribute name="title" value="BSmartMDM"></put-attribute> -->
+        <put-attribute name="body" value="/WEB-INF/jsps/login.jsp"></put-attribute>
+    </definition>
+    <definition name="lockScreen" extends="base.login">
+	        <put-attribute name="title" value="BSmartAMI"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/lockScreen.jsp"></put-attribute>
+	    </definition>
+	    
+	    <definition name="base.crystal" template="/mainTemplate1.jsp">
+    	 <put-attribute name="header" value="/WEB-INF/jsps/pageheader.jsp"></put-attribute> 
+       <!--  <put-attribute name="header2" value="/WEB-INF/jsps/pageheader.jsp"></put-attribute> -->
+        <put-attribute name="menu" value="/WEB-INF/jsps/pagesidebar.jsp"></put-attribute>
+        <put-attribute name="body" value=""></put-attribute>
+        <!-- <put-attribute name="topMenu" value="/WEB-INF/jsps/pageheader.jsp"></put-attribute> -->
+     <put-attribute name="footer" value="/WEB-INF/jsps/pagefooter.jsp"></put-attribute> 
+    </definition>
+     <definition name="analyzedMeters" extends="base.crystal">
+	        <put-attribute name="title" value="BSmartAMI"></put-attribute>
+	        <put-attribute name="body" value="/analyzedMeters.jsp"></put-attribute>
+	    </definition>
+	    
+    <definition name="*" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/jsps/{1}.jsp"></put-attribute>
+    </definition>
+    
+    <!-- <definition name="adminDashboard" extends="base.definition">
+        <put-attribute name="title" value="IREO-STA"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsps/adminDashboard.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="manageDepartment" extends="base.definition">
+        <put-attribute name="title" value="IREO-STA"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsps/manageDepartment.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="manageProjects" extends="base.definition">
+        <put-attribute name="title" value="IREO-STA"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsps/manageProjects.jsp"></put-attribute>
+    </definition>
+    
+	 <definition name="adminCategoryManagement" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/adminCategoryManagement.jsp"></put-attribute>
+	    </definition>	    
+	    
+	    <definition name="adminManageUsers" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/adminManageUsers.jsp"></put-attribute>
+	    </definition>
+	    
+	    <definition name="adminManageHierarchies" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/adminManageHierarchies.jsp"></put-attribute>
+	    </definition>
+	    <definition name="adminLocationManagement" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/adminLocationManagement.jsp"></put-attribute>
+	    </definition>
+	    <definition name="adminSMSGatewaySettings" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/adminSMSGatewaySettings.jsp"></put-attribute>
+	    </definition>
+	    <definition name="adminEmailGatewaySettings" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/adminEmailGatewaySettings.jsp"></put-attribute>
+	    </definition>
+	    <definition name="adminUserAccessManagement" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/adminUserAccessManagement.jsp"></put-attribute>
+	    </definition>
+	    
+	    
+	    <definition name="adminActiveDirectorySettings" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/adminActiveDirectorySettings.jsp"></put-attribute>
+	    </definition>
+	    <definition name="adminManageStagesAndSubStages" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/adminManageStagesAndSubStages.jsp"></put-attribute>
+	    </definition>
+	    <definition name="userProjectStatusTracking" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/userProjectStatusTracking.jsp"></put-attribute>
+	    </definition>
+	    
+	    <definition name="userDailyLog" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/userDailyLog.jsp"></put-attribute>
+	    </definition>
+	    <definition name="userScheduleProjects" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/userScheduleProjects.jsp"></put-attribute>
+	    </definition>
+	    <definition name="userStatusUpdates" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/userStatusUpdates.jsp"></put-attribute>
+	    </definition>
+	    <definition name="userProjectDashboard" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/userProjectDashboard.jsp"></put-attribute>
+	    </definition>
+	    
+	    <definition name="myProfile" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/myProfile.jsp"></put-attribute>
+	    </definition>
+	    
+	    <definition name="lockScreen" extends="base.login">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/lockScreen.jsp"></put-attribute>
+	    </definition>
+	    
+	    <definition name="mySchedule" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/mySchedule.jsp"></put-attribute>
+	    </definition>
+	    
+	    <definition name="myDailylogs" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/myDailylogs.jsp"></put-attribute>
+	    </definition>
+	    
+	    <definition name="myTaskList" extends="base.definition">
+	        <put-attribute name="title" value="IREO-STA"></put-attribute>
+	        <put-attribute name="body" value="/WEB-INF/jsps/myTaskList.jsp"></put-attribute>
+	    </definition> -->	    
+	    
+</tiles-definitions>

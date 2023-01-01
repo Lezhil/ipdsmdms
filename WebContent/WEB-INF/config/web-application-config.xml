@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Enables controllers mapped with @RequestMapping annotations, formatting annotations @NumberFormat @DateTimeFormat, and JSR 303 style validation -->
+	<mvc:annotation-driven/>
+	
+<bean id="messageSource"
+    class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    <property name="basename" value="classpath:messages" />
+</bean>
+ 
+ <!-- Configuration for Spring Aop 
+   <aop:aspectj-autoproxy>
+  <aop:include name="controllerAspect" />
+ </aop:aspectj-autoproxy> 
+ <bean id="controllerAspect" class="com.bcits.aop.AopClass"></bean>  -->
+ 
+	<!-- <mvc:resources mapping="/resources/**" location="/, classpath:/META-INF/web-resources/" /> -->
+	 <mvc:default-servlet-handler />  
+  <!--  <mvc:resources mapping="/resources/**" location="/resources/" />   -->
+    
+    <mvc:resources mapping="/static/**" location="/resources/" cache-period="31556926"/>
+    
+	<!-- Maps request paths to flows in the flowRegistry; e.g. a path of /hotels/booking looks for a flow with id "hotels/booking". -->
+	<!-- <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="order" value="-1"/>
+		<property name="flowRegistry" ref="flowRegistry" />
+	</bean> -->
+
+	<!-- Map paths directly to view names without controller processing. Use the view-name attribute if necessary: by convention the view name equals the path without the leading slash -->
+	<!-- <mvc:view-controller path="/" view-name="login" />
+	<mvc:view-controller path="/bye" view-name="hi" /> -->
+
+	<!-- Dispatches requests mapped to flows to FlowHandler implementations -->
+	<!-- <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor"/>
+	</bean> -->
+	
+	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+		<property name="prefix" value="/WEB-INF/jsps/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean> -->
+	
+	
+	<bean id="multipartResolver"
+   class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+   <property name="maxUploadSize" value="500000000"/>
+    <property name="maxInMemorySize" value="500000000" />
+    </bean>
+    
+     <task:annotation-driven executor="taskExecutor" scheduler="taskScheduler" />
+	<task:scheduler id="taskScheduler" />
+	<task:executor id="taskExecutor" pool-size="10" />
+    
+    
+    
+	<bean id="viewResolver"
+    	class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    	<property name="viewClass">
+	        <value>
+	            org.springframework.web.servlet.view.tiles2.TilesView
+	        </value>
+	    </property>
+	</bean>
+	
+	<bean id="tilesConfigurer"
+	    class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+	    <property name="definitions">
+	        <list>
+	            <value>/WEB-INF/config/tiles.xml</value>
+	        </list>
+	    </property>
+	</bean>	
+	
+		<!-- Executes flows: the entry point into the Spring Web Flow system -->
+	<!-- <webflow:flow-executor id="flowExecutor">
+	</webflow:flow-executor> -->
+	
+	<!-- The registry of executable flow definitions -->
+	<!-- <webflow:flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
+		<webflow:flow-location-pattern value="/**/*-flow.xml" />
+	</webflow:flow-registry> -->
+
+	<!-- Plugs in a custom creator for Web Flow views -->
+	<!-- <webflow:flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator" 
+		development="true" validator="validator" /> -->
+
+	<!-- Configures Web Flow to use Tiles to create views for rendering; Tiles allows for applying consistent layouts to your views -->
+	<!-- <bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator"> 
+		<property name="useSpringBeanBinding" value="true" />
+	</bean> -->
+	
+	<!-- Bootstraps JSR-303 validation and exposes it through Spring's Validator interface -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+	
+
+	<!-- Scans for application @Components to deploy -->
+	<context:component-scan base-package="com.bcits" />
+     <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*" />
+			<bean class="com.bcits.utility.BreadCrumbInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<!-- Imports the configurations of the different infrastructure systems of the application -->
+	<!-- <import resource="webmvc-config.xml" />
+	<import resource="webflow-config.xml" /> -->
+	
+	<!-- <bean id="runScheduler" class="com.bcits.utility.Scheduler" /> -->
+  <!--
+   Run every 5 seconds 
+  <task:scheduled-tasks>
+    
+	<task:scheduled ref="runScheduler" method="run" fixed-delay="5000" /> 
+    
+	<task:scheduled ref="runScheduler" method="run" cron="0 00 21 * * ?" />
+   </task:scheduled-tasks>-->
+   
+    <!-- <bean id="runScheduler" class="com.bcits.utility.Schedular" />
+    <task:scheduled-tasks>
+   <task:scheduled ref="runScheduler" method="parseXmls" cron="0 0/1 * * * ?" />
+   </task:scheduled-tasks>  -->
+   
+  <bean class="org.springframework.orm.hibernate3.support.OpenSessionInViewFilter">
+   
+   	<property name="beanName" value="ChangesEntity"></property>
+   	<property name="singleSession" value="true"></property>
+   </bean>
+   
+   
+   <!-- <bean id="runScheduler" class="com.bcits.mdas.ftp.Scheduler" />
+	<task:scheduled-tasks>
+		<task:scheduled ref="runScheduler" method="createAllXMLScheduler" cron="0 0 2 * * ?" />
+		<task:scheduled ref="runScheduler" method="updateImeiLastComm" cron="0 0 0/1 * * ?" />
+		<task:scheduled ref="runScheduler" method="sendMails" cron="0 30 07 * * ?" />
+	</task:scheduled-tasks> -->
+   
+ <import resource="data-access-config.xml" />
+
+</beans>
